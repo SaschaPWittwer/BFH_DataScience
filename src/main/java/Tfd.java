@@ -39,14 +39,14 @@ public class Tfd {
 
 
             ArrayList<String> output = new ArrayList<>();
+            output.add("Word;Count");
             dict.forEach((s, integer) -> {
-                if (integer > 300)
-                    output.add(s + " " + integer);
+                if (integer > 100)
+                    output.add(s + ";" + integer);
             });
-            List topFifteen = output.stream().limit(15).collect(Collectors.toList());
 
-            Path file = Paths.get("C:\\temp\\output.txt");
-            Files.write(file, topFifteen, StandardOpenOption.CREATE);
+            Path file = Paths.get("C:\\temp\\output.csv");
+            Files.write(file, output, StandardOpenOption.CREATE_NEW);
         }
         catch(Exception exc)
         {
